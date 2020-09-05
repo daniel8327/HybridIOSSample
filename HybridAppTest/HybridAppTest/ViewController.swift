@@ -25,7 +25,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate,  WKS
         contentController.addUserScript(userScript)
         
         // js -> native call : name의 값을 지정하여, js에서 webkit.messageHandlers.NAME.postMessage("");와 연동되는 것, userContentController함수에서 처리한다
-        contentController.add(self, name: "callNativeNoParams")
+        contentController.add(self, name: "callNativeNoParam")
         contentController.add(self, name: "callNativeWithParam")
         contentController.add(self, name: "callNativeWithParams")
         
@@ -81,7 +81,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate,  WKS
         })
         
         webView.evaluateJavaScript("callFromPhoneWithParams('\(123)', '\(456)')", completionHandler: {
-            (any, err) -> Void in 
+            (any, err) -> Void in
             print(err ?? "no error")
         })
         
