@@ -89,6 +89,12 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate,  WKS
             (any, err) -> Void in
             print(err ?? "no error")
         })*/
+        
+        webView.evaluateJavaScript("getCookie()", completionHandler: {
+            (any, err) -> Void in
+            print(err ?? "no error")
+            print(any)
+        })
     }
     
     // JS -> Native CALL
